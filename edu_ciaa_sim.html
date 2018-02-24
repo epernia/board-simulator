@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <title></title>
+      <style>
+         .edu_ciaa_board{
+            position: relative;
+            margin: 30px auto;
+            width: 610px;
+            height: 972px;
+            background: "img/edu_ciaa_board.png";
+            background-image: url(img/edu_ciaa_board.svg);
+            background-position: left top;
+            background-repeat: no-repeat;
+            background-size: cover;  
+         }
+         
+         .led{
+            position: absolute;
+            top: 778px;  
+            display: inline-block;
+            width: 60px;
+            height: 60px;
+            background-position: left top;
+            background-repeat: no-repeat;
+            background-size: cover;            
+         }
+         .led:hover {
+            background-position: left top, left top;
+            background-repeat: no-repeat, no-repeat;
+         }
+         
+         .ledRgb{
+            background: "img/led_rgb.png";
+            background-image: url(img/led_rgb.svg);
+            -webkit-transform: rotate(-90deg);
+            -moz-transform: rotate(-90deg);
+            -ms-transform: rotate(-90deg);
+            -o-transform: rotate(-90deg);
+            transform: rotate(-90deg);
+         }
+         .ledRgb:hover {
+            background: "led_rgb_light.png";
+            background-image: url(img/led_yellow_light.svg), url(img/led_rgb.svg);
+         }
+         .ledRed{
+            background: "img/led_red.png";
+            background-image: url(img/led_red.svg);
+         }
+         .ledRed:hover {
+            background: "img/led_red_light.png";
+            background-image: url(img/led_red_light.svg), url(img/led_red.svg);
+         }
+         .ledGreen{
+            background: "img/led_green.png";
+            background-image: url(img/led_green.svg);
+         }
+         .ledGreen:hover {
+            background: "img/led_green_light.png";
+            background-image: url(img/led_green_light.svg), url(img/led_green.svg);
+         }
+         .ledYellow{
+            background: "img/led_yellow.png";
+            background-image: url(img/led_yellow.svg);
+         }
+         .ledYellow:hover {
+            background: "img/led_yellow_light.png";
+            background-image: url(img/led_yellow_light.svg), url(img/led_yellow.svg);
+         }
+         .ledBlue{
+            background: "img/led_blue.png";
+            background-image: url(img/led_blue.svg);
+         }
+         .ledBlue:hover {
+            background: "img/led_blue_light.png";
+            background-image: url(img/led_blue_light.svg), url(img/led_blue.svg);
+         }
+         
+         #led_pwr {
+            top: 146px; 
+            left: 0px;      
+            -webkit-transform: rotate(-90deg);
+            -moz-transform: rotate(-90deg);
+            -ms-transform: rotate(-90deg);
+            -o-transform: rotate(-90deg);
+            transform: rotate(-90deg);
+         }
+         #led_rgb {
+            left: 154px;
+            -webkit-transform: rotate(-90deg);
+            -moz-transform: rotate(-90deg);
+            -ms-transform: rotate(-90deg);
+            -o-transform: rotate(-90deg);
+            transform: rotate(-90deg);
+         }
+         #led1 {
+            left: 234px;
+         }
+         #led2 {
+            left: 314px;
+         }
+         #led3 {
+            left: 394px;
+         }
+         
+         .switch{
+            position: absolute;
+            top: 872px;
+            display: inline-block;
+            width: 44px;
+            height: 72px;
+            background-position: left top;
+            background-repeat: no-repeat;
+            background-size: cover;
+            background: "img/sw_release.png";
+            background-image: url(img/sw_release.svg);            
+         }
+         /*
+         .switch:hover {
+            background: "img/sw_push.png";
+            background-image: url(img/sw_push.svg);
+            background-position: left top;
+            background-repeat: no-repeat;
+         }
+         */
+         #tecReset {
+            top: 292px;
+            left: 538px;
+         }
+         #tec1 {
+            left: 160px;
+         }
+         #tec2 {
+            left: 241px;
+         }
+         #tec3 {
+            left: 323px;
+         }
+         #tec4 {
+            left: 403px;
+         }
+         
+      </style>
+   </head>
+   <body>
+      <div class="edu_ciaa_board">
+         <div class="led ledRed" id="led_pwr">
+         </div>
+         <div class="switch" id="tecReset">
+         </div>
+         <div>
+            <div class="led ledRgb" id="led_rgb">
+            </div>
+            <div class="led ledRed" id="led1">
+            </div>
+            <div class="led ledYellow" id="led2">
+            </div>
+            <div class="led ledGreen" id="led3">
+               <!--
+               <img src="led_blue.png" srcset="led_blue.svg" class="imgSVG" alt="Led Blue" title="Led Blue" />
+               -->
+            </div>
+         </div>
+         <div>
+            <div class="switch" id="tec1">
+            </div>
+            <div class="switch" id="tec2">
+            </div>
+            <div class="switch" id="tec3">
+            </div>
+            <div class="switch" id="tec4">
+            </div>
+         </div>
+      </div>
+      
+      <script type="text/javascript" src="https://code.jquery.com/jquery-1.11.1.js"></script>
+      
+      <script type="text/javascript">
+         $("#tecReset").mousedown( 
+            function() {
+               $(this).css( "background-image", "url(img/sw_push.svg)" );
+               $("#led_rgb").css( "background-image", "url(img/led_purple_light.svg), url(img/led_rgb.svg)" );
+               $("#led_rgb").css( "background-position", "left top, left top" );
+               $("#led_rgb").css( "background-repeat", "no-repeat, no-repeat" );
+               $("#led1").css( "background-image", "url(img/led_red_light.svg), url(img/led_red.svg)" );
+               $("#led1").css( "background-position", "left top, left top" );
+               $("#led1").css( "background-repeat", "no-repeat, no-repeat" );
+               $("#led2").css( "background-image", "url(img/led_yellow_light.svg), url(img/led_yellow.svg)" );
+               $("#led2").css( "background-position", "left top, left top" );
+               $("#led2").css( "background-repeat", "no-repeat, no-repeat" );
+               $("#led3").css( "background-image", "url(img/led_green_light.svg), url(img/led_green.svg)" );
+               $("#led3").css( "background-position", "left top, left top" );
+               $("#led3").css( "background-repeat", "no-repeat, no-repeat" );
+            }
+         );
+         $("#tecReset").mouseup( 
+            function() {
+               $(this).css( "background-image", "url(img/sw_release.svg)" );
+               $("#led_rgb").css( "background-image", "url(img/led_rgb.svg)" );
+               $("#led_rgb").css( "background-position", "left top" );
+               $("#led_rgb").css( "background-repeat", "no-repeat" );
+               $("#led1").css( "background-image", "url(img/led_red.svg)" );
+               $("#led1").css( "background-position", "left top" );
+               $("#led1").css( "background-repeat", "no-repeat" );
+               $("#led2").css( "background-image", "url(img/led_yellow.svg)" );
+               $("#led2").css( "background-position", "left top" );
+               $("#led2").css( "background-repeat", "no-repeat" );
+               $("#led3").css( "background-image", "url(img/led_green.svg)" );
+               $("#led3").css( "background-position", "left top" );
+               $("#led3").css( "background-repeat", "no-repeat" );
+            }
+         );
+         
+         $("#tec1").mousedown( 
+            function() {
+               $(this).css( "background-image", "url(img/sw_push.svg)" );
+               $("#led_rgb").css( "background-image", "url(img/led_purple_light.svg), url(img/led_rgb.svg)" );
+               $("#led_rgb").css( "background-position", "left top, left top" );
+               $("#led_rgb").css( "background-repeat", "no-repeat, no-repeat" );
+            }
+         );
+         $("#tec1").mouseup( 
+            function() {
+               $(this).css( "background-image", "url(img/sw_release.svg)" );
+               $("#led_rgb").css( "background-image", "url(img/led_rgb.svg)" );
+               $("#led_rgb").css( "background-position", "left top" );
+               $("#led_rgb").css( "background-repeat", "no-repeat" );
+            }
+         );
+         
+         $("#tec2").mousedown( 
+            function() {
+               $(this).css( "background-image", "url(img/sw_push.svg)" );
+               $("#led1").css( "background-image", "url(img/led_red_light.svg), url(img/led_red.svg)" );
+               $("#led1").css( "background-position", "left top, left top" );
+               $("#led1").css( "background-repeat", "no-repeat, no-repeat" );
+            }
+         );
+         $("#tec2").mouseup( 
+            function() {
+               $(this).css( "background-image", "url(img/sw_release.svg)" );
+               $("#led1").css( "background-image", "url(img/led_red.svg)" );
+               $("#led1").css( "background-position", "left top" );
+               $("#led1").css( "background-repeat", "no-repeat" );
+            }
+         );
+         
+         $("#tec3").mousedown( 
+            function() {
+               $(this).css( "background-image", "url(img/sw_push.svg)" );
+               $("#led2").css( "background-image", "url(img/led_yellow_light.svg), url(img/led_yellow.svg)" );
+               $("#led2").css( "background-position", "left top, left top" );
+               $("#led2").css( "background-repeat", "no-repeat, no-repeat" );
+            }
+         );
+         $("#tec3").mouseup( 
+            function() {
+               $(this).css( "background-image", "url(img/sw_release.svg)" );
+               $("#led2").css( "background-image", "url(img/led_yellow.svg)" );
+               $("#led2").css( "background-position", "left top" );
+               $("#led2").css( "background-repeat", "no-repeat" );
+            }
+         );
+         
+         $("#tec4").mousedown( 
+            function() {
+               $(this).css( "background-image", "url(img/sw_push.svg)" );
+               $("#led3").css( "background-image", "url(img/led_green_light.svg), url(img/led_green.svg)" );
+               $("#led3").css( "background-position", "left top, left top" );
+               $("#led3").css( "background-repeat", "no-repeat, no-repeat" );
+            }
+         );
+         $("#tec4").mouseup( 
+            function() {
+               $(this).css( "background-image", "url(img/sw_release.svg)" );
+               $("#led3").css( "background-image", "url(img/led_green.svg)" );
+               $("#led3").css( "background-position", "left top" );
+               $("#led3").css( "background-repeat", "no-repeat" );
+            }
+         );
+      </script>
+      
+   </body>
+</html>

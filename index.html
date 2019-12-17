@@ -176,7 +176,13 @@
       <script type="text/javascript" src="https://code.jquery.com/jquery-1.11.1.js"></script>
       
       <script type="text/javascript">
-         $("#tecReset").mousedown( 
+         
+         addEventListener("touchstart", function(event){  
+             //console.log('down fired');
+             event.target.classList.add('down');
+         }, true);
+         
+         $("#tecReset").touchstart( 
             function() {
                $(this).css( "background-image", "url(img/sw_push.svg)" );
                $("#led_rgb").css( "background-image", "url(img/led_purple_light.svg), url(img/led_rgb.svg)" );
@@ -193,7 +199,7 @@
                $("#led3").css( "background-repeat", "no-repeat, no-repeat" );
             }
          );
-         $("#tecReset").mouseup( 
+         $("#tecReset").touchend( 
             function() {
                $(this).css( "background-image", "url(img/sw_release.svg)" );
                $("#led_rgb").css( "background-image", "url(img/led_rgb.svg)" );
